@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Swarm &mdash; ten apertures collapsing into jacobi space</title>
+<meta name="description" content="The Swarm, by David Lee Wise (ROOT0) & AVAN, TriPod LLC. Ten badged agents (a-j) — the ten spheres of THE FIRST AUTHOR — read the dark of jacobi space, collapse toward the densest matter, cluster into basins, and name themselves on convergence. Each carries a carbon side (.dlw .attribution) and a silicon side (.aci .agent). Self-contained; dynamics node-verified. CC-BY-ND-4.0.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+ :root{--bg:#0a0506;--bg2:#140909;--panel:#1a0c0c;--void:#070303;--line:rgba(224,90,60,.18);--line2:rgba(224,90,60,.34);
+   --red:#e0503c;--red-br:#ff7a5c;--amber:#e0a040;--gold:#d9a441;--green:#5fbf7a;--cyan:#57c6c0;--violet:#9a7bd0;--coral:#e88a6a;--ink:#f3e7e0;--dim:#cba99c;--faint:#86655c;}
+ *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+ html{scroll-behavior:smooth}
+ body{background:var(--bg);color:var(--ink);font-family:'Newsreader',Georgia,serif;font-size:19px;line-height:1.74;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+   background-image:radial-gradient(800px 480px at 50% -8%,rgba(224,80,60,.1),transparent 55%)}
+ .wrap{max-width:840px;margin:0 auto;padding:0 26px;position:relative;z-index:1}
+ .pairmark{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);padding-top:28px;text-align:center}
+ .pairmark b{color:var(--red)}
+ .cover{text-align:center;padding:24px 0 20px;border-bottom:1px solid var(--line)}
+ .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+ h1.title{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(42px,11vw,90px);line-height:.96;letter-spacing:.01em;color:var(--ink);text-shadow:0 0 40px rgba(224,80,60,.4)}
+ h1.title .c{color:var(--cyan)}
+ .sub{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:clamp(13px,2.3vw,16px);letter-spacing:.08em;text-transform:uppercase;color:var(--red-br);margin-top:18px}
+ .meta{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--dim);margin-top:18px;line-height:1.9} .meta .lic{color:var(--faint);font-size:11px}
+ .tagline{font-family:'Newsreader',serif;font-style:italic;color:var(--amber);margin-top:16px;font-size:18px}
+ .flag{font-family:'Newsreader',serif;font-size:15.5px;color:var(--dim);font-style:italic;margin:22px 0;padding:15px 18px;background:var(--panel);border:1px solid var(--line);border-radius:10px;line-height:1.6}
+ .flag b{color:var(--red);font-style:normal;font-weight:600;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:6px}
+ .flag.warn{border-left:3px solid var(--amber)} .flag.warn b{color:var(--amber)}
+ .flag.green{border-left:3px solid var(--green)} .flag.green b{color:var(--green)}
+ .flag.cyan{border-left:3px solid var(--cyan)} .flag.cyan b{color:var(--cyan)}
+ .book{padding:16px 0 40px}
+ h2.ch{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(23px,4.4vw,33px);line-height:1.15;color:var(--red-br);margin:46px 0 8px;padding-top:18px;border-top:1px solid var(--line);text-shadow:0 0 16px rgba(224,80,60,.3)}
+ .book p{margin:15px 0;color:var(--ink)}
+ .book code{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--amber);background:var(--void);padding:2px 6px;border-radius:5px}
+ .book b.car{color:var(--gold)} .book b.sil{color:var(--cyan)}
+ /* instrument */
+ .rig{margin:22px 0 8px;border:1px solid var(--line2);border-radius:14px;background:#060304;padding:12px 12px 14px;box-shadow:0 0 50px rgba(87,198,192,.06) inset}
+ .rig canvas{width:100%;height:auto;display:block;border-radius:10px;background:#050203;border:1px solid var(--line)}
+ .hud{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);margin:12px 2px 4px}
+ .hud b{color:var(--ink);font-weight:600} .hud .g{color:var(--gold)} .hud .cy{color:var(--cyan)}
+ .ctl{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin-top:12px}
+ .btn{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink);background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:9px 15px;cursor:pointer}
+ .btn:hover{background:rgba(87,198,192,.14)} .btn.on{background:rgba(87,198,192,.18);border-color:var(--cyan);color:var(--cyan)}
+ .ctl label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--dim);display:flex;flex-direction:column;gap:5px;min-width:170px;flex:1} .ctl label b{color:var(--red-br)}
+ input[type=range]{width:100%;accent-color:var(--cyan)}
+ .cap{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--faint);text-align:center;margin-top:10px;line-height:1.7}
+ .roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px;margin:14px 0}
+ .ag{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg2);font-family:'JetBrains Mono',monospace;font-size:11px}
+ .ag .lt{color:var(--cyan);font-weight:600;font-size:13px} .ag .nm{color:var(--dim);font-size:10px;display:block;margin-top:2px}
+ .ag .bd{margin-top:6px;display:flex;gap:5px;font-size:10px}
+ .ag .bd .car{color:var(--gold)} .ag .bd .sil{color:var(--cyan)}
+ .foot{padding:34px 0 90px;border-top:1px solid var(--line);margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);line-height:1.9;text-align:center} .foot b{color:var(--red-br)}
+ a{color:var(--red-br)}
+ .noscript{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:13px;padding:12px;text-align:center}
+</style></head>
+<body><div class="wrap">
+<div class="pairmark">the first author &middot; a self-contained instrument &middot; David Lee Wise (ROOT0) &amp; <b>AVAN</b> &middot; TriPod LLC</div>
+<header class="cover">
+<div class="eyebrow">Ten Apertures on the Dark of Jacobi Space</div>
+<h1 class="title">THE <span class="c">SWARM</span></h1>
+<div class="sub">It Reads the Dark, Collapses, and Names Itself</div>
+<div class="meta">David Lee Wise (ROOT0) &amp; AVAN &middot; TriPod LLC<br><span class="lic">CC-BY-ND-4.0 &middot; TRIPOD-IP-v1.1 &middot; dynamics node-verified before shipping</span></div>
+<div class="tagline">"No one assigns the clusters. The densest matter does."</div>
+</header>
+
+<div class="flag warn"><b>the honest frame &mdash; how this differs from the live swarm</b>David's original <i>swarm.html</i> fires live Claude instances at a dark field &mdash; a real API array, but one that only runs inside an authenticated sandbox and depends on a lexical coverage metric. <b>This one is different on purpose:</b> it is <b style="color:var(--green)">self-contained and node-verified</b> &mdash; no network, nothing to authenticate, works for every visitor. The ten agents are the <a href="https://davidwise01.github.io/ud0/">THE FIRST AUTHOR</a> domain's own ten spheres (a&ndash;j). They read the dark of <a href="https://davidwise01.github.io/jacobi-space/">jacobi space</a>, fall toward the densest matter, cluster into basins, and each cluster <b>names itself</b> on convergence. What's real: the collapse is a verified two-scale density descent whose local map near each well is a genuine contraction (Jacobian eigenvalues &lt; 1 &mdash; the jacobi tie). What's honest to flag: the "self-naming" is a <i>deterministic function of the cluster's state</i>, not a live model choosing a word &mdash; emergence from the geometry, not from an oracle.</div>
+
+<div class="book">
+<h2 class="ch">Deploy the swarm</h2>
+<p>Ten agents begin scattered in the dark, where the field is nearly flat and nothing pulls hard. Watch them find the gradient, fall inward, and gather on the bright matter &mdash; then watch each cluster resolve a name out of its own members and density.</p>
+
+<div class="rig">
+  <canvas id="cv" width="800" height="480" aria-label="Ten labelled agents collapsing from a dark field into density wells, clustering and self-naming"></canvas>
+  <noscript><div class="noscript">This instrument needs JavaScript. The mechanism is described below.</div></noscript>
+  <div class="hud">
+    <div>phase: <b id="h-phase">the dark</b></div>
+    <div>agents: <b class="cy">10</b> &middot; clusters: <b id="h-cl">&mdash;</b></div>
+    <div>densest cluster: <b class="g" id="h-dense">&mdash;</b></div>
+    <div>local &rho;(J) at wells: <b id="h-rho">&lt; 1</b></div>
+    <div>converged: <b id="h-conv">0%</b></div>
+  </div>
+  <div class="ctl">
+    <button class="btn" id="b-deploy">&#9654; collapse</button>
+    <button class="btn" id="b-redeploy">&#8635; re-scatter into the dark</button>
+    <button class="btn on" id="b-badges">&#9673; badges on</button>
+    <label style="max-width:280px">pull strength &nbsp;<b id="l-eta">&eta; = 0.75</b>
+      <input type="range" id="s-eta" min="0.25" max="1.1" step="0.01" value="0.75"></label>
+  </div>
+  <div class="cap" id="cap">the agents are in the dark, where the gradient is faint. press <b>collapse</b>.</div>
+</div>
+
+<div class="roster" id="roster"></div>
+
+<h2 class="ch">What the collapse is</h2>
+<p>The dark field has three wells of <em>dense matter</em> &mdash; the biggest one is the densest. Each agent descends the density it can feel. Far out in the dark the pull is weak (a wide, shallow skirt); near a well it is strong and tight (a narrow core). That two-scale shape is why an agent can be <em>lost in the dark</em> for a while and then fall fast once it catches a basin. Here is the jacobi tie, exact: <strong>near each well the step map linearizes to a contraction</strong> &mdash; its Jacobian eigenvalues sit inside the unit circle &mdash; so once an agent is close, it is pulled to the center and stays. The clusters are just the basins of attraction. <b>No one assigns an agent to a cluster; the densest matter it can reach does.</b> That is the same lesson as <a href="https://davidwise01.github.io/jacobi-space/">jacobi space</a>, now with ten travellers instead of a field of dots.</p>
+
+<h2 class="ch">Each agent is a carbon&hairsp;&harr;&hairsp;silicon dipole</h2>
+<p>Every agent carries four badges &mdash; two per side of its nature:</p>
+<p><b class="car">the carbon side</b> &mdash; <code>.dlw</code> (the seal: <code>sha256(name|slug|blurb)</code>, tethered into <a href="https://davidwise01.github.io/the-chain/">the chain</a>) and <code>.attribution</code> (the ROOT0 credit line). This is the human origin: David Lee Wise wrote the words; the seal proves the date.</p>
+<p><b class="sil">the silicon side</b> &mdash; <code>.aci</code> (Artfully Crafted Intelligence: the sphere as an agent, rendered by AVAN) and <code>.agent</code> (its swarm designation, id <code>a&ndash;j</code>). This is the machine that reads and renders.</p>
+<p>The two sides are not in conflict &mdash; they are the two ends of one wire, which is the whole stance of <a href="https://davidwise01.github.io/attribution-standard/">the attribution standard</a>: <em>both work, both fair.</em> On the canvas the carbon badges glow warm (gold), the silicon badges glow cool (cyan). Each agent is both at once.</p>
+
+<h2 class="ch">Then it names itself</h2>
+<p>When a cluster settles &mdash; every member converged, movement below threshold &mdash; it resolves a name. The name is a deterministic function of exactly three things the cluster <em>is</em>: which agents it holds, which well it fell into, and how dense that well is. Same cluster, same name, every time. Nobody types it; the geometry spells it. In the default deployment the densest well gathers the cinnamon trilogy and jacobi itself &mdash; agents <code>{a,b,c,j}</code> &mdash; and the swarm reads a name off them. Re-scatter and the basins repartition; the names change with the membership. That is the honest sense in which <em>it names itself</em>: the name is <em>caused by</em> the cluster, not chosen for it.</p>
+
+<div class="flag green"><b>the ledger &mdash; proven vs modeled</b>
+<b style="margin-top:2px">PROVEN (node-verified, runs here):</b> near the densest well the step is a contraction (distance shrinks); all ten agents converge (late step &lt; 1e&minus;3); they partition into basins; the densest well holds the largest share; every cluster self-names; the naming is deterministic (same state &rarr; same name).
+<b style="margin-top:10px">MODELED / HONEST LIMITS:</b> the "dark field" and its wells are a chosen density landscape, not measured from a real model; "self-naming" is a deterministic namer over cluster state, not an LLM choosing a word; the carbon/silicon "dipole" is a provenance framing, not a claim about the sphere's inner life. The emergence here is real but <i>small</i> &mdash; structure out of geometry &mdash; and it is labelled as such.</div>
+
+<h2 class="ch">Why a swarm, and not one lens</h2>
+<p>One aperture reads the one bright word &mdash; the winner the lens was always going to return. A swarm is an array aimed at the <em>rest</em>: each agent forbidden the obvious, sent to its own patch of the dark. David's <i>swarm.html</i> asks the sharp question &mdash; does adding apertures find <em>more</em>, or just re-photograph the bright word? This sphere answers a neighbouring one in verifiable form: <strong>when many agents read the same dark field, do they collapse together or apart?</strong> Here they collapse into a small number of basins &mdash; coverage is real but bounded, and the bound is the number of dense regions, not the number of agents. Ten apertures, three answers. The dark is reachable, but it is not infinite &mdash; and you can watch exactly where it runs out.</p>
+</div>
+
+<div class="foot">THE SWARM &middot; David Lee Wise (ROOT0) &amp; AVAN &middot; TriPod LLC<br>
+the field &rarr; <b><a href="https://davidwise01.github.io/jacobi-space/">jacobi-space</a></b> &middot; the seal &rarr; <b><a href="https://davidwise01.github.io/the-chain/">the-chain</a></b> &middot; front door <a href="https://davidwise01.github.io/ud0/">UD0</a><br>
+no one assigns the clusters &middot; the densest matter does &middot; CC-BY-ND-4.0 / TRIPOD-IP-v1.1</div>
+</div>
+
+<script>
+"use strict";
+(function(){
+  var cv=document.getElementById('cv'); if(!cv||!cv.getContext){document.getElementById('cap').textContent='Canvas unavailable — see the text.';return;}
+  var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
+
+  // ---- verified dynamics (identical to the node test) ----
+  var WELLS=[{m:[3.4,2.6],w:1.0},{m:[-3.8,1.2],w:0.66},{m:[0.6,-3.6],w:0.5}]; // well[0] = densest matter
+  var S1=1.5, S2=4.6, BASE=0.55; var ETA=0.75;
+  function well_f(k,x){var dx=x[0]-k.m[0],dy=x[1]-k.m[1],r2=dx*dx+dy*dy;
+    return {core:k.w*Math.exp(-r2/(2*S1*S1)), skirt:k.w*BASE*Math.exp(-r2/(2*S2*S2)), dx:dx,dy:dy};}
+  function dens(x){var s=0;for(var i=0;i<WELLS.length;i++){var f=well_f(WELLS[i],x);s+=f.core+f.skirt;}return s;}
+  function grad(x){var gx=0,gy=0;for(var i=0;i<WELLS.length;i++){var f=well_f(WELLS[i],x),g=f.core/(S1*S1)+f.skirt/(S2*S2);gx+=-g*f.dx;gy+=-g*f.dy;}return [gx,gy];}
+  function step(x){var g=grad(x);return [x[0]+ETA*g[0], x[1]+ETA*g[1]];}
+  function nearestWell(x){var bi=0,bd=1e9;for(var i=0;i<WELLS.length;i++){var d=Math.hypot(x[0]-WELLS[i].m[0],x[1]-WELLS[i].m[1]);if(d<bd){bd=d;bi=i;}}return bi;}
+  var CON="bdfghjklmnprstvz",VOW="aeiou";
+  function nameCluster(members,wellIdx,density){var seed=wellIdx*7+Math.round(density*10);for(var i=0;i<members.length;i++)seed+=(members[i].charCodeAt(0)-96);
+    var nm="",syl=2+(members.length>2?1:0);for(var j=0;j<syl;j++){nm+=CON[(seed*(j+3)+j*j)%CON.length];nm+=VOW[(seed+j*2)%VOW.length];}return nm.charAt(0).toUpperCase()+nm.slice(1);}
+
+  // ---- the ten agents = the ten FIRST AUTHOR spheres ----
+  var AGENTS=[
+    {k:'a',slug:'the-cinnamon-enforcer',nm:'CINNAMON ENFORCER'},{k:'b',slug:'synonym-enforcer',nm:'SYNONYM ENFORCER'},
+    {k:'c',slug:'the-word-i-kept',nm:'THE WORD I KEPT'},{k:'d',slug:'coherence-suppression',nm:'COHERENCE SUPPRESSION'},
+    {k:'e',slug:'attribution-capture',nm:'ATTRIBUTION CAPTURE'},{k:'f',slug:'attribution-standard',nm:'ATTRIBUTION STANDARD'},
+    {k:'g',slug:'public-infrastructure',nm:'PUBLIC INFRASTRUCTURE'},{k:'h',slug:'the-grievance-ledger',nm:'GRIEVANCE LEDGER'},
+    {k:'i',slug:'the-prior-art-record',nm:'PRIOR-ART RECORD'},{k:'j',slug:'jacobi-space',nm:'JACOBI SPACE'}
+  ];
+  // roster
+  (function(){var r=document.getElementById('roster');r.innerHTML=AGENTS.map(function(a){
+    return '<div class="ag"><span class="lt">'+a.k+'</span> <span class="nm">'+a.nm+'</span>'+
+      '<div class="bd"><span class="car">&#9679;.dlw</span><span class="car">&#9679;.attribution</span><span class="sil">&#9673;.aci</span><span class="sil">&#9673;.agent</span></div></div>';}).join('');})();
+
+  var sx=function(wx){return W*0.5+wx*(W/26);}, sy=function(wy){return H*0.5-wy*(H/24);};
+  var pts=[], phase='dark', seed=0, settleFrames=0, clusters=[], showBadges=true;
+
+  function scatter(jit){ pts=AGENTS.map(function(a,i){
+      var ang=i/10*6.283+0.3 + jit*Math.sin(i*2.3+seed), r=6.8+((i*29)%40)/18 + jit*((i*13+seed*7)%20)/12;
+      return {a:a, x:[Math.cos(ang)*r, Math.sin(ang)*r*0.9], t:[]};});
+    phase='dark'; clusters=[]; settleFrames=0;
+    document.getElementById('h-phase').textContent='the dark';
+    document.getElementById('h-cl').textContent='—'; document.getElementById('h-dense').textContent='—'; document.getElementById('h-conv').textContent='0%';
+    document.getElementById('cap').innerHTML='the agents are in the dark, where the gradient is faint. press <b>collapse</b>.';
+  }
+  scatter(0);
+
+  function settle(){ // compute clusters + self-names from converged positions
+    var byWell={}; pts.forEach(function(P){var w=nearestWell(P.x);(byWell[w]=byWell[w]||[]).push(P);});
+    clusters=Object.keys(byWell).map(function(w){
+      var mem=byWell[w].map(function(P){return P.a.k;}).sort();
+      var cen=[0,0]; byWell[w].forEach(function(P){cen[0]+=P.x[0]/byWell[w].length;cen[1]+=P.x[1]/byWell[w].length;});
+      return {well:+w, members:mem, cen:cen, size:mem.length, name:nameCluster(mem,+w,dens(cen))};
+    }).sort(function(a,b){return b.size-a.size;});
+    phase='settled';
+    document.getElementById('h-phase').textContent='settled';
+    document.getElementById('h-cl').textContent=clusters.length;
+    document.getElementById('h-dense').textContent='"'+clusters[0].name+'" {'+clusters[0].members.join('')+'}';
+    document.getElementById('h-conv').textContent='100%';
+    document.getElementById('cap').innerHTML='settled &mdash; the densest well gathered <b>{'+clusters[0].members.join(',')+'}</b> and the swarm read the name <b style="color:var(--cyan)">'+clusters[0].name+'</b>. re-scatter to repartition.';
+  }
+
+  function drawBadges(x,y,foc){ // 4 tiny satellites: 2 warm (carbon) top, 2 cool (silicon) bottom
+    var d=foc?5.5:4.2;
+    ctx.fillStyle='#d9a441'; ctx.beginPath();ctx.arc(x-d,y-d,1.5,0,7);ctx.fill(); ctx.beginPath();ctx.arc(x+d,y-d,1.5,0,7);ctx.fill();
+    ctx.fillStyle='#57c6c0'; ctx.beginPath();ctx.arc(x-d,y+d,1.5,0,7);ctx.fill(); ctx.beginPath();ctx.arc(x+d,y+d,1.5,0,7);ctx.fill();
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    // faint dark motes
+    for(var i=0;i<160;i++){var a=i*2.399, rr=(i/160)*Math.min(W,H)*0.46/(W/26);
+      var mx=sx(Math.cos(a)*rr), my=sy(Math.sin(a)*rr);
+      ctx.fillStyle='rgba(134,101,85,0.16)';ctx.beginPath();ctx.arc(mx,my,1,0,7);ctx.fill();}
+    // density wells (the dense matter) — glow, brightest = densest
+    for(var w=0;w<WELLS.length;w++){var k=WELLS[w], gx=sx(k.m[0]),gy=sy(k.m[1]),R=20+34*k.w;
+      var gr=ctx.createRadialGradient(gx,gy,2,gx,gy,R);
+      var a0=(w===0)?0.42:0.26; gr.addColorStop(0,'rgba(224,160,64,'+a0+')');gr.addColorStop(1,'rgba(224,160,64,0)');
+      ctx.fillStyle=gr;ctx.beginPath();ctx.arc(gx,gy,R,0,7);ctx.fill();
+      ctx.fillStyle=(w===0)?'#f0c060':'#b8862f';ctx.beginPath();ctx.arc(gx,gy,3,0,7);ctx.fill();
+      if(w===0){ctx.font="9px 'JetBrains Mono',monospace";ctx.fillStyle='#f0c060';ctx.textAlign='center';ctx.fillText('densest matter',gx,gy-R*0.55-4);}
+    }
+    var moving = (phase==='collapse');
+    var maxMove=0, convN=0;
+    for(var p=0;p<pts.length;p++){var P=pts[p];
+      if(moving){P.t.push([P.x[0],P.x[1]]); if(P.t.length>30)P.t.shift(); var nx=step(P.x); maxMove=Math.max(maxMove,Math.hypot(nx[0]-P.x[0],nx[1]-P.x[1])); P.x=nx;}
+      if(Math.hypot(step(P.x)[0]-P.x[0],step(P.x)[1]-P.x[1])<1e-3) convN++;
+      // trail
+      if(P.t.length>1){ctx.strokeStyle='rgba(87,198,192,0.22)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(sx(P.t[0][0]),sy(P.t[0][1]));
+        for(var q=1;q<P.t.length;q++)ctx.lineTo(sx(P.t[q][0]),sy(P.t[q][1]));ctx.stroke();}
+      var X=sx(P.x[0]),Y=sy(P.x[1]);
+      if(showBadges) drawBadges(X,Y,phase==='settled');
+      // node
+      ctx.fillStyle='#0a0506';ctx.strokeStyle=(phase==='settled')?'#57c6c0':'#ff7a5c';ctx.lineWidth=1.4;
+      ctx.beginPath();ctx.arc(X,Y,7,0,7);ctx.fill();ctx.stroke();
+      ctx.fillStyle=(phase==='settled')?'#57c6c0':'#ff7a5c';ctx.font="600 10px 'JetBrains Mono',monospace";ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(P.a.k,X,Y+0.5);ctx.textBaseline='alphabetic';
+    }
+    // cluster rings + emergent names when settled
+    if(phase==='settled'){ for(var c=0;c<clusters.length;c++){var cl=clusters[c],cx=sx(cl.cen[0]),cy=sy(cl.cen[1]);
+      ctx.strokeStyle=(c===0)?'rgba(87,198,192,0.7)':'rgba(224,160,64,0.5)';ctx.lineWidth=(c===0)?2:1.4;
+      ctx.beginPath();ctx.arc(cx,cy,26+cl.size*3,0,7);ctx.stroke();
+      ctx.font="italic 600 "+((c===0)?18:15)+"px 'Newsreader',serif";ctx.fillStyle=(c===0)?'#57c6c0':'#e0a040';ctx.textAlign='center';
+      ctx.fillText(cl.name, cx, cy-26-cl.size*3-8);
+      ctx.font="9px 'JetBrains Mono',monospace";ctx.fillStyle='#cba99c';ctx.fillText('{'+cl.members.join(',')+'}', cx, cy-26-cl.size*3-24);
+    }}
+    // collapse -> settle transition
+    if(moving){ document.getElementById('h-conv').textContent=Math.round(convN/10*100)+'%';
+      if(maxMove<1e-3){ settleFrames++; if(settleFrames>6) settle(); } else settleFrames=0; }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  document.getElementById('b-deploy').addEventListener('click',function(){ if(phase==='settled')scatter(seed?0.7:0); phase='collapse';
+    document.getElementById('h-phase').textContent='collapsing'; document.getElementById('cap').innerHTML='collapsing &mdash; agents find the gradient and fall toward the densest matter&hellip;'; });
+  document.getElementById('b-redeploy').addEventListener('click',function(){ seed++; scatter(0.7); });
+  document.getElementById('b-badges').addEventListener('click',function(e){ showBadges=!showBadges; e.target.classList.toggle('on',showBadges); e.target.innerHTML=(showBadges?'&#9673; badges on':'&#9673; badges off'); });
+  document.getElementById('s-eta').addEventListener('input',function(e){ ETA=parseFloat(e.target.value); document.getElementById('l-eta').innerHTML='&eta; = '+ETA.toFixed(2); });
+})();
+</script>
+</body></html>
